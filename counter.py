@@ -12,7 +12,7 @@ with open('data/clear_covid_tweets.csv', newline='') as data:
 				else:
 					word_dict[word] = 1
 
-with open('data/words_occurrences.csv', 'w', newline='') as counter:
+with open('output/words_occurrences.csv', 'w', newline='') as counter:
 	writer = csv.DictWriter(counter, fieldnames=['word', 'occurrences'])
 	for w in sorted(word_dict, key=word_dict.get, reverse=True):
 		if word_dict[w] < 5:
