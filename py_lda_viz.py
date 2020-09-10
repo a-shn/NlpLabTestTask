@@ -22,5 +22,4 @@ model = gensim.models.wrappers.ldamallet.malletmodel2ldamodel(
 	LdaMallet(path_to_mallet_binary, corpus=corpus, num_topics=50, id2word=dictionary))
 
 vis_data = gensimvis.prepare(model, corpus, dictionary)
-res = pyLDAvis.display(vis_data)
-pyLDAvis.show(vis_data)
+pyLDAvis.save_html(vis_data, 'lda.html')
