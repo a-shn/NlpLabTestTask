@@ -20,6 +20,7 @@ def delete_stopwords(text):
 
 def stop_words_deleter(filename, result_filename):
 	with open(result_filename, 'w', newline='') as ws_csvfile:
+		ws_csvfile.write('text\n')
 		with open(filename, newline='') as lemmatized_csvfile:
 			reader = csv.DictReader(lemmatized_csvfile)
 			writer = csv.DictWriter(ws_csvfile, fieldnames=['text'])

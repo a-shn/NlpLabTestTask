@@ -18,6 +18,7 @@ def delete_less_occurred_words(filename, result_filename):
 
 	with open(result_filename, 'w', newline='') as counter:
 		with open(filename) as csvfile:
+			counter.write('text\n')
 			reader = csv.DictReader(csvfile)
 			writer = csv.DictWriter(counter, fieldnames=['text'])
 			for w in reader:

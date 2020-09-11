@@ -17,6 +17,7 @@ def count_words_occurrence(filename, result_filename):
 						word_dict[word] = 1
 
 	with open(result_filename, 'w', newline='') as counter:
+		counter.write('word,occurrences\n')
 		writer = csv.DictWriter(counter, fieldnames=['word', 'occurrences'])
 		for w in sorted(word_dict, key=word_dict.get, reverse=True):
 			if word_dict[w] < 5:
