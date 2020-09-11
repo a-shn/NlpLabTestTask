@@ -6,9 +6,11 @@ python3 lemmatizer.py covid_tweets.csv.gz lemmatized_tweets.csv
 2.  1.) Чтобы удалить стоп-слова нужен скрипт stop_words_deleter.py, в который в качестве аргументов подается файл из предыдущего пункта и путь с названием для .csv файла с удаленными стоп-словами:
 python3 stop_words_deleter.py lemmatized_tweets.csv tweets_without_stopwords.csv
 Результатом скрипта также является .csv-файл, содержащий одну колонку 'text'.
+
   2.) Для удаления слов, которые встречаются менее 5 раз, нужен скрипт delete_less_occurred_words.py, в качестве аргументов подается файл из предыдущего шага и путь до нового .csv-файла:
 python3 delete_less_occurred_words.py tweets_without_stopwords.csv clear_tweets.csv
 Результатом скрипта является .csv-файл, содержащий одну колонку 'text'.
+
   3.) Для создания таблицы частот нужен скрипт counter.py, в который в качестве аргументов подается .csv-файл с одной колонкой 'text', в нашем случае это clear_tweets.csv:
 python3 counter.py clear_tweets.csv words_occurrences.csv
 
