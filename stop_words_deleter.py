@@ -1,5 +1,7 @@
 import csv
+import sys
 
+filename, result = str(sys.argv[1]), str(sys.argv[2])
 stopwords = []
 with open('data/stopwords-ru.txt', newline='') as stopwords_file:
 	for line in stopwords_file:
@@ -16,13 +18,15 @@ def delete_stopwords(text):
 	return ' '.join(new_array)
 
 
-with open('data/clear_covid_tweets.csv', 'w', newline='') as clear_csvfile:
-	with open('data/lemmatized_covid_tweets.csv', newline='') as lemmatized_csvfile:
-		reader = csv.DictReader(lemmatized_csvfile)
-		writer = csv.DictWriter(clear_csvfile, fieldnames=['id', 'date', 'text'])
-		for w in reader:
-			if w['text'] != '':
-				tweet_id = w['id']
-				date = w['date']
-				text = delete_stopwords(w['text'])
-				writer.writerow({'id': tweet_id, 'date': date, 'text': text})
+def stop_words_deleter(filename, result_filename):
+	with open(result_filename, 'w', newline='') as ws_csvfile:
+		with open(filename, newline='') as lemmatized_csvfile:
+			reader = csv.DictReader(lemmatized_csvfile)
+			writer = csv.DictWriter(ws_csvfile, fieldnames=['text'])
+			for w in reader:
+				if w['text'] != '':
+					text = delete_stopwords(w['text'])
+					writer.writerow({'text': text})
+
+
+stop_words_deleter(filename, result)
