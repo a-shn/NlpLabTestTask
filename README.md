@@ -17,7 +17,7 @@ python3 delete_less_occurred_words.py tweets_without_stopwords.csv clear_tweets.
 ```
 Результатом скрипта является .csv-файл, содержащий одну колонку 'text'.
 
-2.3) Для создания таблицы частот нужен скрипт counter.py, в который в качестве аргументов подается .csv-файл с одной колонкой 'text', в нашем случае это clear_tweets.csv:
+2.3) Для создания таблицы частот нужен скрипт counter.py, в который в качестве аргументов подается .csv-файл с одной колонкой 'text', в нашем случае это clear_tweets.csv и путь до будущей таблицы частот:
 ```bash
 python3 counter.py clear_tweets.csv words_occurrences.csv
 ```
